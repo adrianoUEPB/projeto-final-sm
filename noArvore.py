@@ -16,6 +16,12 @@ class Node(object):
     def setPai(self, pai):
         self.pai = None
 
+    def ehFolha(self):
+        if(self.filhoEsquerdo == None and self.filhoDireito == None):
+            return True
+
+        return False
+
     '''
     Método responsável por retornar o nó a ser mostrado na tela
     '''

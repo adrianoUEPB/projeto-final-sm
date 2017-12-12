@@ -3,11 +3,11 @@ from calculo import Calculo
 class ShannonFano:
 
     '''
-    Método construtor que recebe a palavra para ser comprimida
+    Método construtor que recebe a Mensagem para ser comprimida
     '''
-    def __init__(self, palavra):
+    def __init__(self, Mensagem):
         self.calc = Calculo()
-        self.palavra = palavra
+        self.Mensagem = Mensagem
 
         frequencias = self.definirFrequencias()
         self.dicionarioCodigos = {}
@@ -16,7 +16,7 @@ class ShannonFano:
 
 
     '''
-    Método responsável por comprimir a palavra recebida, que foi transformada em um dicionário
+    Método responsável por comprimir a Mensagem recebida, que foi transformada em um dicionário
     '''
     def compressao(self, dicionario):
         if(dicionario.__len__() > 1):
@@ -54,17 +54,17 @@ class ShannonFano:
     Método responsável por verificar a frequência de cada letra
     '''
     def definirFrequencias(self):
-        tamPalavra = len(self.palavra)
+        tamMensagem = len(self.Mensagem)
         dicionario = {}
 
-        for i in self.palavra:
+        for i in self.Mensagem:
             if(dicionario.__contains__(i)):
                 dicionario[i] += 1
             else:
                 dicionario[i] = 1
 
         for i in dicionario:
-            dicionario[i] = float(dicionario[i]/tamPalavra)
+            dicionario[i] = float(dicionario[i]/tamMensagem)
 
         return dicionario
 
@@ -73,9 +73,9 @@ class ShannonFano:
         for k, v in dicionario.items():
             print('   %s \t\t    %.3f \t\t  %s' % (k, v, self.dicionarioCodigos[k]))
 
-        print('\nPalavra: %s' % self.palavra)
+        print('\nMensagem: %s' % self.Mensagem)
         print('Compressão', end=': ')
-        for i in self.palavra:
+        for i in self.Mensagem:
             print(self.dicionarioCodigos[i], end='')
 
         entropia = self.calc.entropia(dicionario)
@@ -83,6 +83,6 @@ class ShannonFano:
         eficiencia = self.calc.eficiencia(entropia, comprimento)
         redundancia = self.calc.redundancia(eficiencia)
         print('\nEntropia: %.2f' % entropia)
-        print('Comprimento da palavra: %.2f' % comprimento)
+        print('Comprimento da Mensagem: %.2f' % comprimento)
         print('Eficiência: %.2f' % eficiencia)
         print('Redundância: %.2f' % redundancia)

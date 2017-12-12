@@ -4,9 +4,11 @@ from huffmanAdaptativo import HuffmanAdaptativo
 
 calc = Calculo()
 
-# palavra = input('Informe a palavra a ser comprimida!')
 
-# sf = ShannonFano(palavra)
+
+palavra = input('Informe a palavra a ser comprimida: ')
+
+sf = ShannonFano(palavra)
 
 codInicial = {
     "NYT" : "0",
@@ -19,7 +21,21 @@ ha = HuffmanAdaptativo("AABBBACC", codInicial)
 
 
 
+print("Huffman 1")
 print(ha.codificacao())
+
+codInicial2 = {
+    "NYT" : "0",
+    "A" : "00001",
+    "B" : "00010",
+    "C" : "00011",
+    "D" : "00100"
+}
+
+ha2 = HuffmanAdaptativo("AADCCDD", codInicial2)
+
+print("Huffman 2")
+print(ha2.codificacao())
 
 # print("Testando a taxa de compressão")
 # a = calc.taxaDeCompressao('100000011111111111010101', '1111111111110')

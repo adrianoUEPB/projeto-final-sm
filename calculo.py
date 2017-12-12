@@ -5,8 +5,8 @@ class Calculo(object):
     '''
     Calculo referente a taxa de compressão
     '''
-    def taxaDeCompressao(self, entrada, saida):
-        self.taxa = len(entrada) / len(saida)
+    def taxaDeCompressao(self, entrada, bits, saida):
+        self.taxa = (len(entrada)*bits) / len(saida)
         return self.taxa
 
     '''
