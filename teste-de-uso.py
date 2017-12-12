@@ -1,11 +1,25 @@
 from calculo import Calculo
 from shannonFano import ShannonFano
+from huffmanAdaptativo import HuffmanAdaptativo
 
 calc = Calculo()
 
-palavra = input('Informe a palavra a ser comprimida!')
+# palavra = input('Informe a palavra a ser comprimida!')
 
-sf = ShannonFano(palavra)
+# sf = ShannonFano(palavra)
+
+codInicial = {
+    "NYT" : "0",
+    "A" : "000",
+    "B" : "001",
+    "C" : "010"
+}
+
+ha = HuffmanAdaptativo("AABBBACC", codInicial)
+
+
+
+print(ha.codificacao())
 
 # print("Testando a taxa de compressão")
 # a = calc.taxaDeCompressao('100000011111111111010101', '1111111111110')
